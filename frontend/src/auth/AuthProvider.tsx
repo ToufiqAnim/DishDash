@@ -5,12 +5,12 @@ type Props = {
 };
 
 const AuthProvider = ({ children }: Props) => {
-  const domain = import.meta.env.AUTH0_DOMAIN;
-  const clientID = import.meta.env.AUTH0_CLIENT_ID;
-  const redirectUri = import.meta.env.AUTH0_CALLBACK_URL;
+  const domain = import.meta.env.VITE_AUTH0_DOMAIN;
+  const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
+  const redirectUri = import.meta.env.VITE_AUTH0_CALLBACK_URL;
 
-  if (!domain || !clientID || redirectUri) {
-    throw new Error('Unable to initialise Auth');
+  if (!domain || !clientId || !redirectUri) {
+    throw new Error('unable to initialise auth');
   }
 
   const onRedirectCallback = (appState?: AppState, user?: User) => {
@@ -19,7 +19,7 @@ const AuthProvider = ({ children }: Props) => {
   return (
     <Auth0Provider
       domain={domain}
-      clientId={clientID}
+      clientId={clientId}
       authorizationParams={{
         redirect_uri: redirectUri,
       }}
