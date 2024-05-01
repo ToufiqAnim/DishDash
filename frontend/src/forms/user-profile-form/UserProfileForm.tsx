@@ -1,3 +1,4 @@
+import LoadingButton from '@/components/LoadingButton';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -6,6 +7,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { User } from '@/types';
@@ -80,8 +82,9 @@ const UserProfileForm = ({
             <FormItem>
               <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input {...field} disabled className="bg-white" />
+                <Input {...field} className="bg-white" />
               </FormControl>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -91,11 +94,12 @@ const UserProfileForm = ({
             control={form.control}
             name="addressLine1"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="flex-1">
                 <FormLabel>Address Line 1</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -103,11 +107,12 @@ const UserProfileForm = ({
             control={form.control}
             name="city"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="flex-1">
                 <FormLabel>City</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />
@@ -115,11 +120,12 @@ const UserProfileForm = ({
             control={form.control}
             name="country"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="flex-1">
                 <FormLabel>Country</FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />

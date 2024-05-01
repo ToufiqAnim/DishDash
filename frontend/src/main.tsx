@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import AuthProvider from './auth/AuthProvider';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import App from './App';
+import { Toaster } from 'sonner';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
           <App />
+          <Toaster visibleToasts={1} position="top-right" richColors />
         </AuthProvider>
       </QueryClientProvider>
     </BrowserRouter>

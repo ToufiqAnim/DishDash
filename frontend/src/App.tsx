@@ -3,7 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 import Layout from './layout/layout';
 import AuthCallback from './pages/AuthCallback';
 import HomePage from './pages/HomePage';
-import UserProfileForm from './forms/user-profile-form/UserProfileForm';
+
+import UserProfilePage from './pages/UserProfilePage';
 
 function App() {
   return (
@@ -11,13 +12,20 @@ function App() {
       <Route
         path="/"
         element={
-          <Layout>
+          <Layout showHero>
             <HomePage />
           </Layout>
         }
       />
       <Route path="/auth-callback" element={<AuthCallback />} />
-      <Route path="/user-profile" element={<UserProfileForm />} />
+      <Route
+        path="/user-profile"
+        element={
+          <Layout>
+            <UserProfilePage />
+          </Layout>
+        }
+      />
     </Routes>
   );
 }
